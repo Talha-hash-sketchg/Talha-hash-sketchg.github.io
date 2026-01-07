@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Talha Salman — Arduino, elektronik ve kodlama meraklısı 6. sınıf öğrencisinin portfolyosu." />
+  <title>Talha Salman | Portfolyo</title>
+  <!-- favicon (eklemek isterseniz dosya yolunu değiştirin) -->
+  <link rel="icon" href="favicon.ico" />
+
+  <style>
+    :root{
+      --bg-dark: #0f0f0f;
+      --panel: rgba(255,255,255,0.08);
+      --accent: #ffeb3b;
+      --muted-white: rgba(255,255,255,0.92);
+      --glass-border: rgba(255,255,255,0.08);
+      --skill-bg: rgba(0,0,0,0.35);
+      --focus: 3px solid rgba(255,235,59,0.25);
+      --radius: 12px;
+    }
+
+    /* Respect user's reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color:var(--muted-white);
+      background:
+        radial-gradient(circle at top left, rgba(128,0,128,0.75), transparent 45%),
+        radial-gradient(circle at top right, rgba(255,255,0,0.6), transparent 45%),
+        radial-gradient(circle at bottom left, rgba(255,0,0,0.75), transparent 45%),
+        radial-gradient(circle at bottom right, rgba(0,0,255,0.75), transparent 45%),
+        var(--bg-dark);
+      min-height:100vh;
+      line-height:1.5;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      background-attachment: fixed;
+      padding-bottom:40px;
+    }
+
+    /* Skip link for keyboard users */
+    .skip-link{
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+    .skip-link:focus{
+      left: 10px;
+      top: 10px;
+      width: auto;
+      height: auto;
+      padding: 8px 12px;
+      background: #111;
+      color: var(--accent);
+      border-radius: 4px;
+      z-index: 9999;
+    }
+
+    header{padding:18px 0}
+    nav{
+      display:flex;
+      justify-content:center;
+      background: rgba(0,0,0,0.22);
+      margin: 0 16px;
+      border-radius: 999px;
+      padding: 10px 18px;
+      gap:18px;
+      align-items:center;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    }
+    nav ul{list-style:none;display:flex;gap:22px;align-items:center}
+    nav a{
+      color:var(--muted-white);
+      text-decoration:none;
+      font-weight:700;
+      padding:6px 10px;
+      border-radius:8px;
+      transition: color .18s ease, transform .12s ease;
+    }
+    nav a:hover, nav a:focus{ color: #111; background: var(--accent); transform: translateY(-2px); outline: none; }
+    nav a[aria-current="page"]{ box-shadow: 0 0 0 3px rgba(255,235,59,0.08); }
+
+    .container{
+      max-width:960px;
+      margin:40px auto;
+      padding:22px;
+      background:var(--panel);
+      border-radius:var(--radius);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--glass-border);
+      text-align:center;
+    }
+
+    #hero{
+      min-height:54vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      gap:8px;
+      padding: 18px;
+    }
+    h1{ font-size:2.6rem; line-height:1.05; }
+    .highlight{ color:var(--accent); text-shadow: 2px 2px 10px rgba(255,235,59,0.25); }
+
+    p.lead{ opacity:0.95; font-weight:600 }
+
+    h2{
+      margin-bottom:14px;
+      padding-bottom:6px;
+      display:inline-block;
+      border-bottom:2px solid rgba(255,255,255,0.14);
+      font-size:1.25rem;
+    }
+
+    .skills-grid{
+      display:flex;
+      justify-content:center;
+      gap:16px;
+      flex-wrap:wrap;
+      margin-top:14px;
+    }
+    .skill-card{
+      background: var(--skill-bg);
+      padding:12px 20px;
+      border-radius:10px;
+      font-weight:800;
+      letter-spacing:1px;
+      border:1px solid var(--accent);
+      min-width:110px;
+    }
+
+    footer{
+      margin-top:28px;
+      text-align:center;
+      padding:30px 18px;
+      background: rgba(0,0,0,0.36);
+      border-radius:14px;
+      max-width:960px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    a.contact{
+      color:var(--accent);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    /* Focus styles for accessibility */
+    a:focus, button:focus, .skill-card:focus{
+      outline: none;
+      box-shadow: var(--focus);
+      border-radius:8px;
+    }
+
+    /* Responsive */
+    @media (max-width:720px){
+      .container{ margin:24px 16px; padding:16px; }
+      h1{ font-size:2rem; }
+      nav{ gap:10px; padding:8px 12px }
+      nav ul{ gap:10px }
+      .skill-card{ min-width:90px; padding:10px 14px }
+    }
+
+    /* Simple theme toggle styles (dark is default) */
+    .theme-toggle{
+      margin-left:8px;
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.08);
+      color:var(--muted-white);
+      padding:6px 10px;
+      border-radius:8px;
+      cursor:pointer;
+    }
+    .theme-toggle:hover{ transform: translateY(-1px); }
+
+    /* Small visual improvement for links */
+    p a{ color:var(--accent); text-decoration:underline; }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Sayfaya atla</a>
+
+  <header>
+    <nav role="navigation" aria-label="Ana menü">
+      <ul>
+        <li><a href="#about" aria-current="page">Hakkımda</a></li>
+        <li><a href="#skills">Yetenekler</a></li>
+        <li><a href="#contact">İletişim</a></li>
+      </ul>
+
+      <!-- Basit tema düğmesi (isteğe bağlı) -->
+      <button class="theme-toggle" id="themeToggle" aria-pressed="false" title="Tema değiştir">Tema</button>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section id="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title">Merhaba, Ben <span class="highlight">Talha</span></h1>
+      <p class="lead">Arduino kodlama ve teknoloji bağımlısıyım.</p>
+      <p>En yakın arkadaşım Mirza ile projeler geliştiriyorum!</p>
+    </section>
+
+    <section id="about" class="container" aria-labelledby="about-title">
+      <h2 id="about-title">Hakkımda</h2>
+      <p>Ben Osmaniye Bahçe'de yaşayan bir 6. sınıf öğrencisiyim.<br>
+      Elektronik parçalarla oynamayı ve yeni kodlar yazmayı çok seviyorum.</p>
+    </section>
+
+    <section id="skills" class="container" aria-labelledby="skills-title">
+      <h2 id="skills-title">Yeteneklerim</h2>
+      <div class="skills-grid" role="list">
+        <div class="skill-card" role="listitem" tabindex="0">ARDUINO</div>
+        <div class="skill-card" role="listitem" tabindex="0">KODLAMA</div>
+        <div class="skill-card" role="listitem" tabindex="0">ELEKTRONİK</div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact" class="container" aria-labelledby="contact-title">
+    <h2 id="contact-title">İletişim</h2>
+    <p>📧 <a class="contact" href="mailto:talhasalman1402@gmail.com">talhasalman1402@gmail.com</a></p>
+    <p><strong>TALHA SALMAN</strong></p>
+    <!-- İsterseniz buraya sosyal bağlantılar veya küçük iletişim formu ekleyebilirim -->
+  </footer>
+
+  <script>
+    // Basit tema toggle (localStorage ile saklar). Erişilebilir: düğme aria-pressed güncellenir.
+    (function(){
+      const btn = document.getElementById('themeToggle');
+      if(!btn) return;
+
+      const apply = (theme) => {
+        if(theme === 'light'){
+          document.documentElement.style.setProperty('--bg-dark','#f4f4f6');
+          document.documentElement.style.setProperty('--panel','rgba(0,0,0,0.06)');
+          document.documentElement.style.setProperty('--muted-white','#0b0b0b');
+          document.documentElement.style.setProperty('--skill-bg','rgba(255,255,255,0.65)');
+          document.documentElement.style.setProperty('--glass-border','rgba(0,0,0,0.06)');
+          btn.setAttribute('aria-pressed','true');
+        } else {
+          document.documentElement.style.removeProperty('--bg-dark');
+          document.documentElement.style.removeProperty('--panel');
+          document.documentElement.style.removeProperty('--muted-white');
+          document.documentElement.style.removeProperty('--skill-bg');
+          document.documentElement.style.removeProperty('--glass-border');
+          btn.setAttribute('aria-pressed','false');
+        }
+      };
+
+      const saved = localStorage.getItem('talha-theme');
+      if(saved) apply(saved);
+
+      btn.addEventListener('click', () => {
+        const current = btn.getAttribute('aria-pressed') === 'true' ? 'light' : null;
+        const next = current ? 'dark' : 'light';
+        apply(next);
+        localStorage.setItem('talha-theme', next === 'light' ? 'light' : 'dark');
+      });
+    })();
+  </script>
+</body>
+</html>
