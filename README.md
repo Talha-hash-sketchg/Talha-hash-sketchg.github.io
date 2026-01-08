@@ -8,3 +8,14 @@
     İLETİŞİM BİLGİLERİ 
     talhasalman1402@gmail.com 
 </h4>
+<head>
+    <style>
+        body {
+            background-color: purple; 
+        }
+    </style>
+</head>
+<body>
+</body>
+
+
