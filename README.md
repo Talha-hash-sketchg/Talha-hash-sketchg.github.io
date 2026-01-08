@@ -1,12 +1,4 @@
-<head>
-    <style>
-        body {
-            background-color: purple; 
-        }
-    </style>
-</head>
-<body>
-</body>
+
 <h1>
     Ben Talha 
 </h1>
